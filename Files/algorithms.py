@@ -15,9 +15,9 @@ class Algo:
                     self.array[j], self.array[j+1] = self.array[j+1], self.array[j]
                 comparision += 1
             if pre == swap:
-                return f'Iterations: {i+1}',f'Comparisions: {comparision}',f'Swaps: {swap}',f'Sorted Array: {self.array}'
+                return f'Iterations: {i+1}\nComparisions: {comparision}\nSwaps: {swap}\nSorted Array: {self.array}'
             pre = swap
-        return f'Iterations: {i+1}',f'Comparisions: {comparision}',f'Swaps: {swap}',f'Sorted Array: {self.array}'
+        return f'Iterations: {i+1}\nComparisions: {comparision}\nSwaps: {swap}\nSorted Array: {self.array}'
     
     def selectionSort(self):
         comparision = 0
@@ -29,14 +29,15 @@ class Algo:
                 if self.array[min_idx] > self.array[j]:
                     min_idx = j
             if min_idx == i:
-                    return f'Iterations: {i+1}',f'Comparisions: {comparision}',f'Swaps: {swap}',f'Sorted Array: {self.array}'
+                    return f'Iterations: {i+1}\nComparisions: {comparision}\nSwaps: {swap}\nSorted Array: {self.array}'
             swap += 1
             self.array[i], self.array[min_idx] = self.array[min_idx], self.array[i]
-        return f'Iterations: {i+1}',f'Comparisions: {comparision}',f'Swaps: {swap}',f'Sorted Array: {self.array}'
+        return f'Iterations: {i+1}\nComparisions: {comparision}\nSwaps: {swap}\nSorted Array: {self.array}'
     
     def insertionSort(self):
         swap = 0
         comparision = 0
+        i = 0
         for i in range(1, len(self.array)):
             key = self.array[i]
             j = i-1
@@ -50,4 +51,25 @@ class Algo:
                     comparision += 1
                     break
             self.array[j + 1] = key
-        return f'Iterations: {i+1}',f'Comparisions: {comparision}',f'Swaps: {swap}',f'Sorted Array: {self.array}'
+        return f'Iterations: {i+1}\nComparisions: {comparision}\nSwaps: {swap}\nSorted Array: {self.array}'
+    
+    def mergeSort(self):
+        pass
+
+    def quickSort(self):
+        pass
+
+    def shellSort(self):
+        pass
+
+    def heapSort(self):
+        pass
+
+    def countingSort(self):
+        pass
+
+    def radixSort(self):
+        pass
+
+    def bucketSort(self):
+        pass

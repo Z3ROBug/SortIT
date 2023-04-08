@@ -22,8 +22,8 @@ title = font1.render("SortIT",True,'White')
 enter_array = font2.render('Enter Array',True,(40,54,70))
 text = ''
 user_input = font2.render(text,True,(40,54,70))
+dt = font2.render(text,True,(40,54,70))
 result_text = font2.render('Result',True,(40,54,70))
-# Result Text Position 0.2379209370424597,0.6015625
 
 
 #  ------ Images ------
@@ -68,6 +68,11 @@ bucket_2 = image('Images/Bucket_2.png')
 # Result Box
 result_box = image('Images/Result_Box.png',0.5695461200585652,0.2565104166666667)
 
+# Left/Right Button
+left_1 = image('Images/Left_1.png',0.0130208333333333,0.0131771595900439)
+left_2 = image('Images/Left_2.png',0.0130208333333333,0.0131771595900439)
+right_1 = image('Images/Right_1.png',0.0130208333333333,0.0131771595900439)
+right_2 = image('Images/Right_2.png',0.0130208333333333,0.0131771595900439)
 
 # ------ Positions -------
 # Borders
@@ -99,7 +104,11 @@ bucket_pos = (0.6749633967789165*screen_width,0.49609375*screen_height)
 result_box_pos = (0.2152269399707174*screen_width,0.57421875*screen_height)
 
 # Result
-result_pos = (result_box_pos[0]+(result_box.get_width()*0.038560411311054),result_box_pos[1]+(result_box.get_height()*0.1065989847715736))
+result_pos = (result_box_pos[0]+(result_box.get_width()*0.051413881748072),result_box_pos[1]+(result_box.get_height()*0.0761421319796954))
+
+# Left/Right Button
+left_pos = (result_box_pos[0]+(result_box.get_width()*0.012853470437018),result_box_pos[1]+(result_box.get_height()*0.4568527918781726))
+right_pos = (result_box_pos[0]+result_box.get_width()-right_1.get_width()-(result_box.get_width()*0.012853470437018),result_box_pos[1]+(result_box.get_height()*0.4568527918781726))
 
 # ------ Rectangles ------
 # Title
@@ -143,3 +152,7 @@ user_input_rect.centery = input_box_pos[1]+(input_box_1.get_height()/2)
 result_rect = result_text.get_rect()
 result_rect.centerx = result_box_pos[0]+(result_box.get_width()/2)
 result_rect.centery = result_box_pos[1]+(result_box.get_height()/2)
+
+# Left/Right Button
+left_rect = pygame.Rect(left_pos[0],left_pos[1],left_1.get_width(),left_1.get_height())
+right_rect = pygame.Rect(right_pos[0],right_pos[1],right_1.get_width(),right_1.get_height())

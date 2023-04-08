@@ -1,4 +1,4 @@
-from resources import *
+from Files.resources import *
 
 def hover(standard,hovering,position,mouse):
     if position[0] < mouse[0] < position[0] + standard.get_width() and position[1] < mouse[1] < position[1] + standard.get_height():
@@ -9,17 +9,14 @@ def hover(standard,hovering,position,mouse):
 def hover_select(mouse_pos,bubble,selection,insertion,merge,quick,shell,heap,counting,radix,bucket):
         if bubble:
             screen.blit(bubble_2,bubble_pos)
-            method = 'bubble'
         else:
             hover(bubble_1,bubble_2,bubble_pos,mouse_pos)
         if insertion:
             screen.blit(insertion_2,insertion_pos)
-            method = 'insertion'
         else:
             hover(insertion_1,insertion_2,insertion_pos,mouse_pos)
         if selection:
             screen.blit(selection_2,selection_pos)
-            method = 'selection'
         else:
             hover(selection_1,selection_2,selection_pos,mouse_pos)
         if merge:
