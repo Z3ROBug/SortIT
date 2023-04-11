@@ -2,6 +2,7 @@ class Algo:
 
     def __init__(self,array):
         self.array = array
+        self.recursion = 0
 
     def bubbleSort(self):
         comparision = 0
@@ -54,8 +55,36 @@ class Algo:
         return f'Iterations: {i+1}\nComparisions: {comparision}\nSwaps: {swap}\nSorted Array: {self.array}'
     
     def mergeSort(self):
-        pass
+        self.recursion += 1
+        if len(self.array) > 1:
+            mid = len(self.array)//2
+            L = self.array[:mid]
+            R = self.array[mid:]
+            l = Algo(L)
+            r = Algo(R)
+            l.mergeSort()
+            r.mergeSort()
+            i = j = k = 0
+            while i < len(L) and j < len(R):
+                if L[i] <= R[j]:
+                    self.array[k] = L[i]
+                    i += 1
+                else:
+                    self.array[k] = R[j]
+                    j += 1
+                k += 1
+            while i < len(L):
+                self.array[k] = L[i]
+                i += 1
+                k += 1
+            while j < len(R):
+                self.array[k] = R[j]
+                j += 1
+                k += 1
 
+    def mergeSortResult(self):
+        return f'Recursion: {self.recursion}\nSorted Array: {self.array}'
+    
     def quickSort(self):
         pass
 
