@@ -58,6 +58,7 @@ while running:
                 merge = True
                 bubble = selection = insertion = quick = shell = heap = counting = radix = bucket = False
             elif quick_rect.collidepoint(mouse_pos):
+                method = 'quick'
                 quick = True
                 bubble = selection = insertion = merge = shell = heap = counting = radix = bucket = False
             elif shell_rect.collidepoint(mouse_pos):
@@ -79,13 +80,10 @@ while running:
             # SortIT
             if sortit_rect.collidepoint(mouse_pos) and method != None:
                 array = text.split(',')
-                for i in range(len(array)):
-                    array[i] = array[i].strip()
                 try:
                     flo = False
                     for i in range(len(array)):
-                        index = array[i].find(".")
-                        if index != -1:
+                        if array[i].find(".") != -1:
                             flo = True
                     if flo:
                         for i in range(len(array)):
@@ -104,6 +102,8 @@ while running:
                                 array[i] = int(array[i])
                     except:
                         array = text.split(',')
+                        for i in range(len(array)):
+                            array[i] = array[i].strip()
                 to_sort = Algo(array)
                 if method == 'bubble':
                     result = to_sort.bubbleSort()
