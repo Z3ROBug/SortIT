@@ -62,18 +62,23 @@ while running:
                 quick = True
                 bubble = selection = insertion = merge = shell = heap = counting = radix = bucket = False
             elif shell_rect.collidepoint(mouse_pos):
+                method = 'shell'
                 shell = True
                 bubble = selection = insertion = merge = quick = heap = counting = radix = bucket = False
             elif heap_rect.collidepoint(mouse_pos):
+                method = 'heap'
                 heap = True
                 bubble = selection = insertion = merge = quick = shell = counting = radix = bucket = False
             elif counting_rect.collidepoint(mouse_pos):
+                method = 'counting'
                 counting = True
                 bubble = selection = insertion = merge = quick = shell = heap = radix = bucket = False
             elif radix_rect.collidepoint(mouse_pos):
+                method = 'radix'
                 radix = True
                 bubble = selection = insertion = merge = quick = shell = heap = counting = bucket = False
             elif bucket_rect.collidepoint(mouse_pos):
+                method = 'bucket'
                 bucket = True
                 bubble = selection = insertion = merge = quick = shell = heap = counting = radix = False
 
