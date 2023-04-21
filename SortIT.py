@@ -111,11 +111,14 @@ while running:
                             array[i] = array[i].strip()
                 to_sort = Algo(array)
                 if method == 'bubble':
-                    result = to_sort.bubbleSort()
+                    sorted = to_sort.bubbleSort()
+                    result = f'Iterations: {Algo.iteration}\nComparisions: {Algo.comparision}\nSwaps: {Algo.swap}\nSorted Array: {sorted}'
                 elif method == 'insertion':
-                    result = to_sort.insertionSort()
+                    sorted = to_sort.insertionSort()
+                    result = f'Iterations: {Algo.iteration}\nComparisions: {Algo.comparision}\nSwaps: {Algo.swap}\nSorted Array: {sorted}'
                 elif method == 'selection':
-                    result = to_sort.selectionSort()
+                    sorted = to_sort.selectionSort()
+                    result = f'Iterations: {Algo.iteration}\nComparisions: {Algo.comparision}\nSwaps: {Algo.swap}\nSorted Array: {sorted}'
                 elif method == 'merge':
                     result = to_sort.mergeSort()
                 elif method == 'quick':

@@ -5,50 +5,57 @@ class Algo:
     # Class Variable
     comparision = 0
     swap = 0
+    iteration = 0
     recursion = 0
 
     # Bubble Sort
     def bubbleSort(self):
+        Algo.iteration = 0
         Algo.comparision = 0
         Algo.swap = 0
         pre = 0
         n = len(self.array)
         for i in range(n):
+            Algo.iteration += 1
             for j in range(n-i-1):
                 if self.array[j] > self.array[j+1]:
                     Algo.swap += 1
                     self.array[j], self.array[j+1] = self.array[j+1], self.array[j]
                 Algo.comparision += 1
             if pre == Algo.swap:
-                return f'Iterations: {i+1}\nComparisions: {Algo.comparision}\nSwaps: {Algo.swap}\nSorted Array: {self.array}'
+                return self.array
             pre = Algo.swap
-        return f'Iterations: {i+1}\nComparisions: {Algo.comparision}\nSwaps: {Algo.swap}\nSorted Array: {self.array}'
+        return self.array
 
     # Selection Sort  
     def selectionSort(self):
+        Algo.iteration = 0
         Algo.comparision = 0
         Algo.swap = 0
         sorted = self.array.copy()
         sorted.sort()
         for i in range(len(self.array)):
+            Algo.iteration += 1
             min_idx = i
             for j in range(i+1, len(self.array)):
                 Algo.comparision += 1
                 if self.array[min_idx] > self.array[j]:
                     min_idx = j
             if min_idx == i and self.array == sorted:
-                    return f'Iterations: {i+1}\nComparisions: {Algo.comparision}\nSwaps: {Algo.swap}\nSorted Array: {self.array}'
+                    return self.array
             if min_idx != i:
                 Algo.swap += 1
                 self.array[i], self.array[min_idx] = self.array[min_idx], self.array[i]
-        return f'Iterations: {i+1}\nComparisions: {Algo.comparision}\nSwaps: {Algo.swap}\nSorted Array: {self.array}'
+        return self.array
     
     # Insertion Sort
     def insertionSort(self):
+        Algo.iteration = 0
         Algo.swap = 0
         Algo.comparision = 0
         i = 0
         for i in range(1, len(self.array)):
+            Algo.iteration += 1
             key = self.array[i]
             j = i-1
             while j >= 0:
@@ -61,7 +68,7 @@ class Algo:
                     Algo.comparision += 1
                     break
             self.array[j + 1] = key
-        return f'Iterations: {i+1}\nComparisions: {Algo.comparision}\nSwaps: {Algo.swap}\nSorted Array: {self.array}'
+        return self.array
     
     # Merge Sort
     def __merge(self):
@@ -143,4 +150,19 @@ class Algo:
         pass
 
     def bucketSort(self):
-        pass
+        arr = []
+        slot_num = 10
+        for i in range(slot_num):
+            arr.append([])
+        for j in self.array:
+            index_b = int(slot_num * j)
+            arr[index_b].append(j)
+        for i in range(slot_num):
+            insert = Algo(arr[i])
+            arr[i] = insert.insertionSort()
+        k = 0
+        for i in range(slot_num):
+            for j in range(len(arr[i])):
+                 self.array[k] = arr[i][j]
+                 k += 1
+        return f'{self.array}'
